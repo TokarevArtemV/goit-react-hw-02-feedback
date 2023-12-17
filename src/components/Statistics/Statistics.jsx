@@ -12,13 +12,11 @@ export const Statistics = ({
     <div className={`${css.statistics}`}>
       <h2 className={`${css.statisticsTitle}`}>Statistics</h2>
       <Notification countTotalFeedback={total} text="There is no feedback">
-        <span className={`${css.statisticsSpan}`}>Good: {good}</span>
-        <span className={`${css.statisticsSpan}`}>Neutral: {neutral}</span>
-        <span className={`${css.statisticsSpan}`}>Bad: {bad}</span>
-        <span className={`${css.totalCount}`}>Total: {`${total}`}</span>
-        <span className={`${css.feedbackPercentage}`}>
-          Positive feedback: {`${positivePercentage} %`}
-        </span>
+        <span>Good: {good}</span>
+        <span>Neutral: {neutral}</span>
+        <span>Bad: {bad}</span>
+        <span>Total: {`${total}`}</span>
+        <span>Positive feedback: {`${positivePercentage} %`}</span>
       </Notification>
     </div>
   );

@@ -15,23 +15,15 @@ export class App extends Component {
     this.setState({ [event]: this.state[event] + 1 });
   };
 
-  countTotalFeedback = () => {
-    return Object.values(this.state).reduce((acc, num) => {
-      return acc + num;
-    }, 0);
-  };
+  countTotalFeedback = () =>
+    Object.values(this.state).reduce((acc, num) => acc + num, 0);
 
-  countPositiveFeedbackPercentage = () => {
-    return (
-      Math.round(
-        (this.state.good /
-          Object.values(this.state).reduce((acc, num) => {
-            return acc + num;
-          }, 0)) *
-          100
-      ) || '0'
-    );
-  };
+  countPositiveFeedbackPercentage = () =>
+    Math.round(
+      (this.state.good /
+        Object.values(this.state).reduce((acc, num) => acc + num, 0)) *
+        100
+    ) || '0';
 
   render() {
     return (
