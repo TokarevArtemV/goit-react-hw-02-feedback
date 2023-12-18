@@ -10,9 +10,12 @@ export class App extends Component {
     bad: 0,
   };
 
-  counterFeedback = evt => {
-    const event = evt.target.dataset['state'];
-    this.setState({ [event]: this.state[event] + 1 });
+  counterFeedback = option => {
+    this.setState(prevState => {
+      return {
+        [option]: prevState[option] + 1,
+      };
+    });
   };
 
   countTotalFeedback = () =>
@@ -29,15 +32,19 @@ export class App extends Component {
     return (
       <Section title={'Please leave feedback'}>
         <FeedbackOptions
-          options={this.state}
+          options={Object.keys(this.state)}
           onLeaveFeedback={this.counterFeedback}
         />
-
-        <Statistics
-          {...this.state}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage()}
-        />
+        <h2>Statistics</h2>
+        {this.countTotalFeedback() ? (
+          <Statistics
+            {...this.state}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        ) : (
+          <p>There is no feedback</p>
+        )}
       </Section>
     );
   }

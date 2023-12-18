@@ -10,8 +10,7 @@ export const Statistics = ({
 }) => {
   return (
     <div className={`${css.statistics}`}>
-      <h2 className={`${css.statisticsTitle}`}>Statistics</h2>
-      <Notification countTotalFeedback={total} text="There is no feedback">
+      <Notification countTotalFeedback={total}>
         <span>Good: {good}</span>
         <span>Neutral: {neutral}</span>
         <span>Bad: {bad}</span>
